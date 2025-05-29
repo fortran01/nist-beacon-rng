@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIST Beacon Lottery Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎲 NIST Beacon Lottery Generator</h1>
+            <p>Generating lottery numbers using NIST's Randomness Beacon</p>
+        </header>
+
+        <main>
+            <div class="controls">
+                <button id="generateBtn" class="generate-btn">
+                    🔄 Generate New Numbers
+                </button>
+                <div id="loadingIndicator" class="loading hidden">
+                    <div class="spinner"></div>
+                    <span>Fetching beacon data...</span>
+                </div>
+            </div>
+
+            <div class="results">
+                <div class="lottery-card">
+                    <h2>OLG 6/49</h2>
+                    <div class="number-container" id="numbers649">
+                        <div class="number-ball">?</div>
+                        <div class="number-ball">?</div>
+                        <div class="number-ball">?</div>
+                        <div class="number-ball">?</div>
+                        <div class="number-ball">?</div>
+                        <div class="number-ball">?</div>
+                    </div>
+                    <p class="range-info">6 unique numbers from 1-49</p>
+                </div>
+
+                <div class="lottery-card">
+                    <h2>Lotto Max</h2>
+                    <div class="number-container" id="numbersMax">
+                        <div class="number-ball">?</div>
+                        <div class="number-ball">?</div>
+                        <div class="number-ball">?</div>
+                        <div class="number-ball">?</div>
+                        <div class="number-ball">?</div>
+                        <div class="number-ball">?</div>
+                        <div class="number-ball">?</div>
+                    </div>
+                    <p class="range-info">7 unique numbers from 1-50</p>
+                </div>
+            </div>
+
+            <div class="beacon-info">
+                <h3>Beacon Information</h3>
+                <div id="beaconDetails" class="beacon-details">
+                    <p><strong>Timestamp:</strong> <span id="beaconTimestamp">-</span></p>
+                    <p><strong>Output Value:</strong> <span id="beaconOutput">-</span></p>
+                </div>
+            </div>
+
+            <div id="errorMessage" class="error-message hidden">
+                <p>⚠️ <span id="errorText"></span></p>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html> 
