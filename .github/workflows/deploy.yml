@@ -40,6 +40,15 @@ jobs:
         env:
           NODE_ENV: production
 
+      - name: Verify build output
+        run: |
+          echo "Checking dist directory contents:"
+          ls -la dist/
+          echo "Checking assets directory:"
+          ls -la dist/assets/
+          echo "Verifying JavaScript files have .js extension:"
+          find dist -name "*.js" -type f
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
