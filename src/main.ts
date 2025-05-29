@@ -40,9 +40,9 @@ class LotteryApp {
       // Fetch beacon data
       const beaconData = await this.beaconService.fetchLatestBeacon();
       
-      // Generate lottery numbers
-      const numbers649 = this.lotteryGenerator.generate649Numbers(beaconData.pulse.outputValue);
-      const numbersMax = this.lotteryGenerator.generateLottoMaxNumbers(beaconData.pulse.outputValue);
+      // Generate lottery numbers (now async)
+      const numbers649 = await this.lotteryGenerator.generate649Numbers(beaconData.pulse.outputValue);
+      const numbersMax = await this.lotteryGenerator.generateLottoMaxNumbers(beaconData.pulse.outputValue);
       
       // Validate generated numbers
       if (!this.lotteryGenerator.validateNumbers(numbers649, 6, 1, 49)) {
