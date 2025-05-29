@@ -182,6 +182,64 @@ npm run build
 
 The built files will be in the `dist` directory.
 
+## Deployment
+
+### GitHub Pages with GitHub Actions
+
+This project is configured for automatic deployment to GitHub Pages using GitHub Actions. The deployment happens automatically when you push to the main branch.
+
+#### Setup Instructions
+
+1. **Fork or clone this repository** to your GitHub account
+
+2. **Enable GitHub Pages** in your repository:
+   - Go to your repository settings
+   - Navigate to "Pages" in the left sidebar
+   - Under "Source", select "GitHub Actions"
+
+3. **Push to main branch** - The GitHub Actions workflow will automatically:
+   - Install dependencies
+   - Build the project
+   - Deploy to GitHub Pages
+
+4. **Access your deployed site** at: `https://yourusername.github.io/nist-beacon-rng/`
+
+#### Manual Deployment
+
+If you prefer manual deployment using the gh-pages package:
+
+```bash
+# Install dependencies (if not already done)
+npm install
+
+# Deploy to GitHub Pages
+npm run deploy
+```
+
+#### Deployment Configuration
+
+The project includes:
+
+- **GitHub Actions Workflow** (`.github/workflows/deploy.yml`): Automated CI/CD pipeline
+- **Vite Configuration**: Properly configured base path for GitHub Pages
+- **Build Optimization**: Production builds with source maps
+- **Static Asset Handling**: Proper handling of CSS, JS, and other assets
+
+#### Workflow Features
+
+- **Automatic Deployment**: Triggers on push to main branch
+- **Build Caching**: Uses npm cache for faster builds
+- **Security**: Uses GitHub's OIDC for secure deployments
+- **Concurrent Protection**: Prevents conflicting deployments
+- **Artifact Upload**: Efficient artifact handling for large builds
+
+#### Troubleshooting
+
+- **404 Errors**: Ensure the base path in `vite.config.ts` matches your repository name
+- **Build Failures**: Check the Actions tab for detailed error logs
+- **CORS Issues**: The NIST Beacon API supports CORS for browser requests
+- **Cache Issues**: GitHub Pages may cache content; wait a few minutes for updates
+
 ## API Reference
 
 ### NIST Randomness Beacon API
